@@ -1,0 +1,30 @@
+<div class="tudo">
+    <input type="text" [(ngModel)]="nomeCategoria".toLowerCase class="inputText" placeholder="     Insira a categoria...">
+    <p class="categoriaEscolhida">A categoria escolhida foi {{nomeCategoria}}</p>
+    
+    <div [ngSwitch]="nomeCategoria">
+        <section *ngSwitchCase=" 'comedia' ">
+            <ul *ngFor="let filme of catComedia">
+                <li>{{filme.name}}</li>
+                <h3>{{filme.description}}</h3>
+                <img src="{{filme.imagem}}" alt="" style="height: 200px; width: 150px;">
+            </ul>
+        </section>
+        <section *ngSwitchCase=" 'acao' ">
+            <ul *ngFor="let filme of catAcao">
+                <li>{{filme.name}}</li>
+                <h3>{{filme.description}}</h3>
+                <img src="{{filme.imagem}}" alt="" style="height: 200px; width: 150px;">
+            </ul>
+        </section>
+        <section *ngSwitchCase="'drama'">
+            <ul *ngFor="let filme of catDrama">
+                <li>{{filme.name}}</li>
+                <h3>{{filme.description}}</h3>
+                <img src="{{filme.imagem}}" alt="" style="height: 200px; width: 150px;">
+            </ul>
+        </section> 
+    </div>
+</div>
+    
+<router-outlet></router-outlet>
